@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: react-test
+    image: esarawso2/react_test:V1
+    build: 
+      context: .
+    ports:
+      - 3000:80
