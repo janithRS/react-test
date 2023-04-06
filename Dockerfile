@@ -1,5 +1,4 @@
 FROM node:17-alpine as builder
-USER 10014
 WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
@@ -11,4 +10,5 @@ FROM nginx:1.19-alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=builder /app/build .
+USER 10014
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
